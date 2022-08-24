@@ -1,0 +1,45 @@
+﻿@model BlendersDC_API.Models.Oil
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Oil</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OilTank1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OilTank1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OilTank2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OilTank2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OilTankInter)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OilTankInter)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

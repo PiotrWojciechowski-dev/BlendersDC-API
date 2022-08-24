@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using BlendersDC_API.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<BlendersContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BlendersContext") ?? throw new InvalidOperationException("Connection string 'BlendersContext' not found.")));
 
 // Add services to the container.
 
@@ -16,10 +21,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
